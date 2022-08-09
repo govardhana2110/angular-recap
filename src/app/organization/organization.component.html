@@ -1,0 +1,93 @@
+<div>
+  <h1>ngIf Directive</h1>
+  <div *ngIf="flag">
+    <h1>If the condition is true</h1>
+  </div>
+
+  <hr>
+
+  <div>
+    <h1>ngFor Directive</h1>
+    <div *ngFor="let record of records">
+      <p>{{ record }}</p>
+    </div>
+  </div>
+
+  <hr>
+<h1>ngSwitchcase data</h1>
+  <div [ngSwitch]="records.length">
+    <p *ngSwitchCase="1">One</p>
+    <p *ngSwitchCase="2">Two</p>
+    <p *ngSwitchCase="3">Three</p>
+    <p *ngSwitchCase="4">Four</p>
+    <p *ngSwitchDefault>Default</p>
+  </div>
+
+  <hr>
+
+  <div [ngClass]="clrflag ? 'primary' : 'secondary'">
+  <p>ngClass text</p>
+  </div>
+  <button (click)="onButtonclick()">style change</button>
+
+  <hr>
+
+
+<div [ngStyle]="{ 'color':clrflag?'#33ccff':'#ff99cc','backgroundcolor':!clrflag?'#33ccff':'#ff99cc'}">
+<p>ngStyle text</p>
+</div>
+
+
+<hr>
+
+<div>
+  <input type="search" class="form-control" placeholder="Search" [(ngModel)]="searchValue">
+<br>
+<div>
+  searchValue: {{searchValue | json}}
+</div>
+
+</div>
+
+
+
+<hr>
+<div>
+  <p>Custom pipe value</p>
+<p>{{53 | inrusd}}</p>
+</div>
+
+<hr>
+<div>
+  <h1>Parent component</h1>
+  <p>Message from child: {{messageFromChild}}</p>
+  <app-child message="Message from parent to child" (eventFromChild)="parentAction($event)"></app-child>
+  <p>{{message}}</p>
+</div>
+
+
+<hr>
+
+
+<div>
+  <h1>Forms</h1>
+<form [formGroup]="demoForm">
+<label>Name</label>
+<input type="text" formControlName="name" placeholder="Name"><br><br>
+<label>Phone</label>
+<input type="text" formControlName="phone" placeholder="Phone"><br><br>
+<label>Email</label>
+<input type="text" formControlName="email" placeholder="Email"><br><br>
+</form>
+<button (click)="setValue()">Set Value</button> &nbsp;
+<button (click)="patchValue()">Patch Value</button>
+</div>
+
+
+<hr>
+
+<div>
+  <p>Color</p>
+  <!-- <input type="text" ([ngModel])="color" >  -->
+</div>
+</div>
